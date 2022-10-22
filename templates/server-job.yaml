@@ -273,7 +273,7 @@ spec:
       restartPolicy: "OnFailure"
       initContainers:
         - name: check-elasticsearch-service
-          image: busybox
+          image: busybox:1.28.4
           command: ['sh', '-c', 'until nslookup {{ .Values.elasticsearch.host }}; do echo waiting for elasticsearch service; sleep 1; done;']
         - name: check-elasticsearch
           image: "{{ .Values.admintools.image.repository }}:{{ .Values.admintools.image.tag }}"
